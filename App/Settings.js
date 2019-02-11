@@ -4,7 +4,7 @@ function SettingValue() { // constructor function
 }
 // static variables. Default values 
 SettingValue.gravity = new BABYLON.Vector3(0, -9.8, 0);  
-SettingValue.daytime = 2;
+SettingValue.daytime = 1;
 SettingValue.placement = 0;
 SettingValue.edited = false;
 SettingValue.characters = 3;
