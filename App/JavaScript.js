@@ -21,7 +21,7 @@ var cameraBullet;
 var text1;
 var slideZ;
 var slideX;
-var particleSystem;
+var shooting = false;
 
 var createScene = function () {
     canvas = document.getElementById('renderCanvas');
@@ -190,6 +190,8 @@ var createScene = function () {
 
     // impostiamo un listener in modo che quando clicchiamo, accade qualcosa (in questo caso il proiettile viene sparato)
     document.getElementById("renderCanvas").addEventListener("click", function () {
+        if(!shooting){
+            shooting = true;
         gunshot.play();
 
         bullet = sphere[shot];
@@ -243,6 +245,7 @@ var createScene = function () {
         }
         // slow down animition
         scene.getPhysicsEngine().getPhysicsPlugin().world.timeStep = 0.001;
+        }
     });
     return scene;
 };
@@ -399,6 +402,7 @@ function render() {
 
 
 function hit(main, collided) {
+    shooting = false;
     image.isVisible = true;
     scene.activeCamera = camera;
     cameraBullet.position = camera.position;
